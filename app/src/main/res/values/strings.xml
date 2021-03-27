@@ -8,4 +8,9 @@
     <string name="search">Search</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="theme_one">Theme one</string>
+    <string name="theme_second">Theme second</string>
+
+    <!--Settings fragment-->
+
 </resources>

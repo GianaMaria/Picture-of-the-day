@@ -11,4 +11,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="color_gray">#66000000</color>
+    
+    <color name="Primary">#d1c4e9</color>
+    <color name="PDark">#a094b7</color>
+    <color name="PLight">#fff7ff</color>
+    
+    <color name="Secondary">#b39ddb</color>
+    <color name="SDark">#836fa9</color>
+    <color name="SLight">#e6ceff</color>
+
 </resources>

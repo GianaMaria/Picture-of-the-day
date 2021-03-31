@@ -1,12 +1,9 @@
 package com.example.pictureoftheday.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.app.ActivityCompat
+import androidx.appcompat.app.AppCompatActivity
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.ui.picture.PictureOfTheDayFragment
-import geekbarains.material.ui.chips.SettingsFragment
-import kotlinx.android.synthetic.main.fragment_settings.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +15,5 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.container, PictureOfTheDayFragment.newInstance())
                 .commitNow()
         }
-
     }
 }

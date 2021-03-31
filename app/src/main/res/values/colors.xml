@@ -20,4 +20,6 @@
     <color name="SDark">#836fa9</color>
     <color name="SLight">#e6ceff</color>
 
+    <color name="colorAccent40Alfa">#662962FF</color>
+
 </resources>

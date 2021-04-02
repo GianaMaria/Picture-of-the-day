@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.ApiActivity">
+    tools:context=".ui.fragments.MainEarthFragment">
 
     <me.relex.circleindicator.CircleIndicator
         android:id="@+id/indicator_earth"
@@ -14,7 +14,7 @@
         android:background="@color/PDark" />
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager"
+        android:id="@+id/view_pager_main_earth"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/indicator_earth"
@@ -26,4 +26,5 @@
             android:layout_height="wrap_content"
             app:tabGravity="fill" />
     </androidx.viewpager.widget.ViewPager>
+
 </RelativeLayout>

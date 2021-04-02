@@ -1,22 +1,22 @@
-package com.example.pictureoftheday.ui.picture
+package com.example.pictureoftheday.ui.fragments
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import coil.api.load
 import com.example.pictureoftheday.R
-import com.example.pictureoftheday.ui.MainActivity
-import com.example.pictureoftheday.ui.demoapi.ApiActivity
-import com.example.pictureoftheday.ui.settings.SettingsFragment
+import com.example.pictureoftheday.ui.activity.ApiActivity
+import com.example.pictureoftheday.ui.activity.MainActivity
+import com.example.pictureoftheday.util.toast
+import com.example.pictureoftheday.viewModel.LiveDataOfTheDayData
+import com.example.pictureoftheday.viewModel.PictureOfTheDayViewModel
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import geekbarains.material.ui.picture.BottomNavigationDrawerFragment
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 import kotlinx.android.synthetic.main.main_fragment.*
 
@@ -75,9 +75,9 @@ class PictureOfTheDayFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun renderData(data: PictureOfTheDayData) {
+    private fun renderData(data: LiveDataOfTheDayData) {
         when (data) {
-            is PictureOfTheDayData.Success -> {
+            is LiveDataOfTheDayData.Success -> {
                 val serverResponseData = data.serverResponseData
                 val url = serverResponseData.url
                 val description = serverResponseData.explanation
@@ -87,7 +87,7 @@ class PictureOfTheDayFragment : Fragment() {
                     toast("Link is empty")
                 } else {
                     //showSuccess()
-                    image_view.load(url) {
+                    image_view_earth.load(url) {
                         lifecycle(this@PictureOfTheDayFragment)
                         error(R.drawable.ic_load_error_vector)
                         placeholder(R.drawable.ic_no_photo_vector)
@@ -96,10 +96,10 @@ class PictureOfTheDayFragment : Fragment() {
                     bottom_sheet_description.text = description
                 }
             }
-            is PictureOfTheDayData.Loading -> {
+            is LiveDataOfTheDayData.Loading -> {
                 //showLoading()
             }
-            is PictureOfTheDayData.Error -> {
+            is LiveDataOfTheDayData.Error -> {
                 //showError(data.error.message)
                 toast(data.error.message)
             }
@@ -132,13 +132,6 @@ class PictureOfTheDayFragment : Fragment() {
     private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-    }
-
-    private fun Fragment.toast(string: String?) {
-        Toast.makeText(context, string, Toast.LENGTH_SHORT).apply {
-            setGravity(Gravity.BOTTOM, 0, 250)
-            show()
-        }
     }
 
     companion object {

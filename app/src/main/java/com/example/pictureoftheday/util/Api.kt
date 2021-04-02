@@ -1,6 +1,6 @@
 package com.example.pictureoftheday.util
 
-import com.example.pictureoftheday.ui.picture.PictureOfTheDayAPI
+import com.example.pictureoftheday.model.api.PictureOfTheDayAPI
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
@@ -10,11 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
-private const val API_KEY = "api_key"
-
 private const val BASE_URL = "https://api.nasa.gov/"
-const val URL_IMAGES_EARTH = "https://api.nasa.gov/EPIC/api/natural/date/"
-const val URL_IMAGES_MARS = "https://api.nasa.gov/mars-photos/api/"
 
 class Api {
 

@@ -1,9 +1,9 @@
-package com.example.pictureoftheday.ui
+package com.example.pictureoftheday.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pictureoftheday.R
-import com.example.pictureoftheday.ui.picture.PictureOfTheDayFragment
+import com.example.pictureoftheday.ui.fragments.PictureOfTheDayFragment
 
 class MainActivity : AppCompatActivity() {
 

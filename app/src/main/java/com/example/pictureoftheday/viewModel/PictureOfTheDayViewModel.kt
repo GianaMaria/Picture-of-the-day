@@ -1,29 +1,30 @@
-package com.example.pictureoftheday.ui.picture
+package com.example.pictureoftheday.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.pictureoftheday.BuildConfig
+import com.example.pictureoftheday.model.entity.PODServerResponseData
 import com.example.pictureoftheday.util.Api
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 class PictureOfTheDayViewModel(
-    private val liveDataForViewToObserve: MutableLiveData<PictureOfTheDayData> = MutableLiveData(),
+    private val liveDataForViewToObserve: MutableLiveData<LiveDataOfTheDayData> = MutableLiveData(),
     private val api: Api = Api()
 ) :
     ViewModel() {
 
-    fun getData(): LiveData<PictureOfTheDayData> {
+    fun getData(): LiveData<LiveDataOfTheDayData> {
         sendServerRequest()
         return liveDataForViewToObserve
     }
 
     private fun sendServerRequest() {
-        liveDataForViewToObserve.value = PictureOfTheDayData.Loading(null)
+        liveDataForViewToObserve.value = LiveDataOfTheDayData.Loading(null)
         val apiKey: String = BuildConfig.NASA_API_KEY
         if (apiKey.isBlank()) {
-            PictureOfTheDayData.Error(Throwable("You need API key"))
+            LiveDataOfTheDayData.Error(Throwable("You need API key"))
         } else {
             api.getRetrofitImpl().getPictureOfTheDay(apiKey).enqueue(object :
                 Callback<PODServerResponseData> {
@@ -33,21 +34,21 @@ class PictureOfTheDayViewModel(
                 ) {
                     if (response.isSuccessful && response.body() != null) {
                         liveDataForViewToObserve.value =
-                            PictureOfTheDayData.Success(response.body()!!)
+                            LiveDataOfTheDayData.Success(response.body()!!)
                     } else {
                         val message = response.message()
                         if (message.isNullOrEmpty()) {
                             liveDataForViewToObserve.value =
-                                PictureOfTheDayData.Error(Throwable("Unidentified error"))
+                                LiveDataOfTheDayData.Error(Throwable("Unidentified error"))
                         } else {
                             liveDataForViewToObserve.value =
-                                PictureOfTheDayData.Error(Throwable(message))
+                                LiveDataOfTheDayData.Error(Throwable(message))
                         }
                     }
                 }
 
                 override fun onFailure(call: Call<PODServerResponseData>, t: Throwable) {
-                    liveDataForViewToObserve.value = PictureOfTheDayData.Error(t)
+                    liveDataForViewToObserve.value = LiveDataOfTheDayData.Error(t)
                 }
             })
         }

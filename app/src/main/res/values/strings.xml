@@ -11,6 +11,10 @@
     <string name="theme_one">Theme one</string>
     <string name="theme_second">Theme second</string>
 
+    <string name="today">Today</string>
+    <string name="picture_of_the_day">Картинка дня</string>
+    <string name="days">Дни</string>
+
     <!--Settings fragment-->
 
 </resources>

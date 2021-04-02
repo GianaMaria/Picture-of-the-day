@@ -1,13 +1,11 @@
-package geekbarains.material.ui.picture
+package com.example.pictureoftheday.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.pictureoftheday.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-
 import kotlinx.android.synthetic.main.bottom_navigation_layout.*
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
@@ -25,8 +23,10 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
 
         navigation_view.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.navigation_one -> Toast.makeText(context, "1", Toast.LENGTH_SHORT).show()
-                R.id.navigation_two -> Toast.makeText(context, "2", Toast.LENGTH_SHORT).show()
+                R.id.navigation_one -> parentFragmentManager.beginTransaction()
+                    .replace(R.id.container, MainEarthFragment()).commit()
+                R.id.navigation_two -> parentFragmentManager.beginTransaction()
+                    .replace(R.id.container, PictureOfTheDayFragment()).commit()
             }
             true
         }

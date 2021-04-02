@@ -1,6 +1,7 @@
-package com.example.pictureoftheday.ui.picture
+package com.example.pictureoftheday.model.api
 
 import com.example.pictureoftheday.model.entity.DatePictureEarthGSON
+import com.example.pictureoftheday.model.entity.PODServerResponseData
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

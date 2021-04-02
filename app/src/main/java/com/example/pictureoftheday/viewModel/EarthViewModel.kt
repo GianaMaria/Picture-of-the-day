@@ -22,16 +22,15 @@ class EarthViewModel(
 ) :
     ViewModel() {
 
-    private var day: Int = 0
-    private val date: String = getDate(day)
+    private var date: String = ""
 
     fun getData(): LiveData<LiveDataEarth> {
         sendServerRequest()
         return liveDataForViewToObserve
     }
 
-    fun setDay(numberDay: Int) {
-        day = numberDay
+    fun setDate(numberDay: String) {
+        date = numberDay
     }
 
     private fun sendServerRequest() {

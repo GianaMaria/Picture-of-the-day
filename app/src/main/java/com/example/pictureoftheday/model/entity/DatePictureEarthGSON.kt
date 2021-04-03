@@ -3,7 +3,7 @@ import com.google.gson.annotations.Expose
 
 data class DatePictureEarthGSON (
 
-	@Expose val identifier : Int,
+	@Expose val identifier : Long,
 	@Expose val caption : String,
 	@Expose val image : String,
 	@Expose val version : Int,

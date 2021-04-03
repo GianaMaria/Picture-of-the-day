@@ -64,7 +64,7 @@ class EarthPhotoFragment : Fragment() {
         when (liveData) {
             is LiveDataEarth.Success -> {
 
-                var uri = if (liveData.datePictureEarthGSON.isEmpty()) {
+                val uri = if (liveData.datePictureEarthGSON.isEmpty()) {
                     "https://api.nasa.gov/EPIC/archive/natural/2019/05/30/png/epic_1b_20190530011359.png?api_key=DEMO_KEY"
                 } else {
                     "https://api.nasa.gov/EPIC/archive/natural/" +

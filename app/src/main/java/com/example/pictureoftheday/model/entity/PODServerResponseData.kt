@@ -1,14 +1,14 @@
 package com.example.pictureoftheday.model.entity
 
-import com.google.gson.annotations.SerializedName
+import com.google.gson.annotations.Expose
 
 data class PODServerResponseData(
-    @field:SerializedName("copyright") val copyright: String?,
-    @field:SerializedName("date") val date: String?,
-    @field:SerializedName("explanation") val explanation: String?,
-    @field:SerializedName("media_type") val mediaType: String?,
-    @field:SerializedName("title") val title: String?,
-    @field:SerializedName("url") val url: String?,
-    @field:SerializedName("hdurl") val hdurl: String?
+    @Expose val copyright: String?,
+    @Expose val date: String?,
+    @Expose val explanation: String?,
+    @Expose val mediaType: String?,
+    @Expose val title: String?,
+    @Expose val url: String?,
+    @Expose val hdurl: String?
 )
 

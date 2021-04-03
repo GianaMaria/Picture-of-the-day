@@ -87,7 +87,7 @@ class PictureOfTheDayFragment : Fragment() {
                     toast("Link is empty")
                 } else {
                     //showSuccess()
-                    image_view_earth.load(url) {
+                    image_view_earth_main.load(url) {
                         lifecycle(this@PictureOfTheDayFragment)
                         error(R.drawable.ic_load_error_vector)
                         placeholder(R.drawable.ic_no_photo_vector)

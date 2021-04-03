@@ -1,6 +1,7 @@
 package com.example.pictureoftheday.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -62,20 +63,24 @@ class EarthPhotoFragment : Fragment() {
 
         when (liveData) {
             is LiveDataEarth.Success -> {
-                if (liveData.datePictureEarthGSON.isNotEmpty()) {
-                    val uri = "https://api.nasa.gov/EPIC/archive/natural/" +
+
+                var uri = if (liveData.datePictureEarthGSON.isEmpty()) {
+                    "https://api.nasa.gov/EPIC/archive/natural/2019/05/30/png/epic_1b_20190530011359.png?api_key=DEMO_KEY"
+                } else {
+                    "https://api.nasa.gov/EPIC/archive/natural/" +
                             "${year}/" +
                             "${month}/" +
-                            "${day}" +
-                            "/png/${liveData.datePictureEarthGSON[0].image}.png?api_key=${
-                                BuildConfig.NASA_API_KEY
-                            }"
-                    image_view_earth.load(uri) {
-                        lifecycle(this@EarthPhotoFragment)
-                        error(R.drawable.ic_load_error_vector)
-                        placeholder(R.drawable.ic_no_photo_vector)
-                    }
+                            day +
+                            "/png/${liveData.datePictureEarthGSON[0].image}.png?api_key=${BuildConfig.NASA_API_KEY}"
                 }
+                Log.v("TAG", uri)
+
+                image_view_earth_main.load(uri) {
+                    lifecycle(this@EarthPhotoFragment)
+                    error(R.drawable.ic_load_error_vector)
+                    placeholder(R.drawable.ic_no_photo_vector)
+                }
+
             }
             is LiveDataEarth.Loading -> {
                 //showLoading()

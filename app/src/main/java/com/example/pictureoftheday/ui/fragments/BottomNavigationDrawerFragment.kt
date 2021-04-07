@@ -24,7 +24,7 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
         navigation_view.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.navigation_one -> parentFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainEarthFragment()).commit()
+                    .replace(R.id.container, DaysEarthFragment()).commit()
                 R.id.navigation_two -> parentFragmentManager.beginTransaction()
                     .replace(R.id.container, PictureOfTheDayFragment()).commit()
             }

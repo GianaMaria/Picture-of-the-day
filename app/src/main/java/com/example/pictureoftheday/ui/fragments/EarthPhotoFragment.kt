@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import coil.api.load
 import com.example.pictureoftheday.BuildConfig
 import com.example.pictureoftheday.R
+import com.example.pictureoftheday.util.enlargingThePicture
 import com.example.pictureoftheday.util.toast
 import com.example.pictureoftheday.viewModel.EarthViewModel
 import com.example.pictureoftheday.viewModel.LiveDataEarth
@@ -80,6 +81,8 @@ class EarthPhotoFragment : Fragment() {
                     error(R.drawable.ic_load_error_vector)
                     placeholder(R.drawable.ic_no_photo_vector)
                 }
+
+                enlargingThePicture(image_view_earth_main, container_days)
 
             }
             is LiveDataEarth.Loading -> {

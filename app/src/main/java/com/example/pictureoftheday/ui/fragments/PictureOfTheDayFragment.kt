@@ -12,6 +12,7 @@ import coil.api.load
 import com.example.pictureoftheday.R
 import com.example.pictureoftheday.ui.activity.ApiActivity
 import com.example.pictureoftheday.ui.activity.MainActivity
+import com.example.pictureoftheday.util.enlargingThePicture
 import com.example.pictureoftheday.util.toast
 import com.example.pictureoftheday.viewModel.LiveDataOfTheDayData
 import com.example.pictureoftheday.viewModel.PictureOfTheDayViewModel
@@ -50,6 +51,7 @@ class PictureOfTheDayFragment : Fragment() {
             })
         }
         setBottomAppBar(view)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -62,7 +64,7 @@ class PictureOfTheDayFragment : Fragment() {
             R.id.app_bar_fav -> toast("Favourite")
 
             R.id.app_bar_settings -> activity?.supportFragmentManager?.beginTransaction()
-                ?.add(R.id.container, SettingsFragment())?.addToBackStack(null)?.commit()
+                ?.replace(R.id.container, SettingsFragment())?.addToBackStack(null)?.commit()
 
             android.R.id.home -> {
                 activity?.let {
@@ -93,6 +95,9 @@ class PictureOfTheDayFragment : Fragment() {
                         error(R.drawable.ic_load_error_vector)
                         placeholder(R.drawable.ic_no_photo_vector)
                     }
+
+                    enlargingThePicture(image_view, main)
+
                     bottom_sheet_description_header.text = title
                     bottom_sheet_description.text = description
                 }
@@ -106,6 +111,7 @@ class PictureOfTheDayFragment : Fragment() {
             }
         }
     }
+
 
     private fun setBottomAppBar(view: View) {
         val context = activity as MainActivity
@@ -134,6 +140,7 @@ class PictureOfTheDayFragment : Fragment() {
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
     }
+
 
     companion object {
         fun newInstance() = PictureOfTheDayFragment()

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.EarthPhotoFragment">
+    tools:context=".ui.fragments.EarthPhotoFragment"
+    android:id="@+id/container_days">
 
     <com.example.pictureoftheday.util.EquilateralImageView
         android:id="@+id/image_view_earth_main"

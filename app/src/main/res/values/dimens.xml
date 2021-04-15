@@ -18,6 +18,7 @@
     <dimen name="margin_20_dp">20dp</dimen>
     <dimen name="margin_24_dp">24dp</dimen>
     <dimen name="margin_25_dp">25dp</dimen>
+    <dimen name="margin_250_dp">250dp</dimen>
 
     <dimen name="text_size_bottom_title">20dp</dimen>
     <dimen name="text_size_bottom_body">18dp</dimen>

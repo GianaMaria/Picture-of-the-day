@@ -27,6 +27,8 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                     .replace(R.id.container, DaysEarthFragment()).commit()
                 R.id.navigation_two -> parentFragmentManager.beginTransaction()
                     .replace(R.id.container, PictureOfTheDayFragment()).commit()
+                R.id.to_do_list -> parentFragmentManager.beginTransaction()
+                    .replace(R.id.container, ToDoListFragment()).commit()
             }
             true
         }

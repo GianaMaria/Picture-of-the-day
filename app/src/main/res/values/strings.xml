@@ -14,6 +14,7 @@
     <string name="today">Today</string>
     <string name="picture_of_the_day">Картинка дня</string>
     <string name="days">Дни</string>
+    <string name="notes">Заметки</string>
 
     <!--Settings fragment-->
 

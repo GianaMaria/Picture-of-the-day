@@ -1,8 +1,13 @@
 package com.example.pictureoftheday.ui.fragments
 
 import android.content.Intent
+import android.graphics.Color.WHITE
 import android.net.Uri
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.BulletSpan
+import android.text.style.ForegroundColorSpan
 import android.view.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -98,8 +103,33 @@ class PictureOfTheDayFragment : Fragment() {
 
                     enlargingThePicture(image_view, main)
 
-                    bottom_sheet_description_header.text = title
-                    bottom_sheet_description.text = description
+                    if (description == null || title == null) {
+                        toast("На сегодня описания нет")
+                    } else {
+                        val leadingMargin = 16
+                        val spannableDescription = SpannableString(description)
+                        spannableDescription.setSpan(
+                            ForegroundColorSpan(WHITE),
+                            0,
+                            description.length,
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                        )
+
+                        spannableDescription.setSpan(
+                            BulletSpan(leadingMargin), 0, description.length,
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                        )
+
+                        val spannableTitle = SpannableString(title)
+                        spannableTitle.setSpan(
+                            ForegroundColorSpan(resources.getColor(R.color.PLight)),
+                            0, title.length,
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                        )
+
+                        bottom_sheet_description_header.text = title
+                        bottom_sheet_description.text = description
+                    }
                 }
             }
             is LiveDataOfTheDayData.Loading -> {

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -7,4 +10,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="color_gray">#66000000</color>
+    
+    <color name="Primary">#d1c4e9</color>
+    <color name="PDark">#a094b7</color>
+    <color name="PLight">#fff7ff</color>
+    
+    <color name="Secondary">#b39ddb</color>
+    <color name="SDark">#836fa9</color>
+    <color name="SLight">#e6ceff</color>
+
+    <color name="colorAccent40Alfa">#662962FF</color>
+
 </resources>

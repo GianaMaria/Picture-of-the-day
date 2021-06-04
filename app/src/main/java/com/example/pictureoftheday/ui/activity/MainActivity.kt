@@ -1,8 +1,9 @@
-package com.example.pictureoftheday
+package com.example.pictureoftheday.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.pictureoftheday.ui.main.MainFragment
+import androidx.appcompat.app.AppCompatActivity
+import com.example.pictureoftheday.R
+import com.example.pictureoftheday.ui.fragments.PictureOfTheDayFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,8 +12,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainFragment.newInstance())
-                    .commitNow()
+                .replace(R.id.container, PictureOfTheDayFragment.newInstance())
+                .commitNow()
         }
     }
 }
